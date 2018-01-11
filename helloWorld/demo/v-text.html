@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>v-text&v-html</title>
+    <!-- include vuejs -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}<br>
+        <span v-text="message"></span>
+        <!-- v-html -->
+        <div v-html="htmlText"></div>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "messgae",
+                htmlText: "<strong>xss</strong>"
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>v-on</title>
+    <!-- include vuejs -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        number:{{count}}
+        <div>
+            <button v-on:click="countNumber">click me! add number</button>
+            <button @click="minusNumber">click me! minus number</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                count: 0
+            },
+            methods: {
+                countNumber() {
+                    this.count++;
+                },
+                minusNumber() {
+                    this.count--;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

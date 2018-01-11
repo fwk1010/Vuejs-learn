@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hi Vue</title>
+    <!-- include vuejs -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- basic v-for-->
+        <ul>
+            <li v-for="item in items">{{item}}</li>
+        </ul>
+        <!-- object array in v-for-->
+        <ul>
+            <li v-for="(obj,index) in dataList">
+                index:{{index}} name:{{obj.name}} age:{{obj.age}}
+            </li>
+        </ul>
+        <!-- sort -->
+        <ul>
+            <li v-for="item in sortItems">{{item}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                items: ['apple', 'banana', 'cool'],
+                dataList: [{
+                    name: 'zhangsan',
+                    age: 18
+                }, {
+                    name: 'lisi',
+                    age: 12
+                }, {
+                    name: 'wangwu',
+                    age: 78
+                }]
+            },
+            computed: {
+                sortItems: function() {
+                    return this.items.sort(function(a, b) {
+                        return a - b > 0 ? -1 : 1;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
